@@ -1,30 +1,119 @@
 <template>
-  <v-app>
-        <span>Vuetify</span>
-    
+  <v-app id="inspire">
+    <v-navigation-drawer v-model="drawer" app clipped>
+      <v-list dense>
+        <v-list-item link>
+          <v-list-item-action>
+            <v-icon>dashboard</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Dashboard</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item link>
+          <v-list-item-action>
+            <v-icon>settings</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>
+              <router-link to="/">Settings</router-link>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item link>
+          <v-list-item-action>
+            <v-icon>account_circle</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>
+              <router-link to="/Profile">Profile</router-link>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item link>
+          <v-list-item-action>
+            <v-icon>people_alt</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>
+              <router-link to="/personas">Personas</router-link>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item link>
+          <v-list-item-action>
+            <v-icon>store</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>
+              <router-link to="/personas">Venues</router-link>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-app-bar app clipped-left>
+      <!-- <v-avatar :tile="true">
+        <img :src="require('@/assets/TopSmallIcon.png')" alt="logo" />
+      </v-avatar>-->
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-toolbar-title>{{ $route.meta.title }}</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <img
+        class="d-lg-none d-xl-flex"
+        :src="require('@/assets/TopSmallIcon.png')"
+        alt="logo"
+        height="45"
+      />
+      <img
+        class="d-none d-lg-block"
+        :src="require('@/assets/TopLongBanner.png')"
+        alt="logo"
+        height="50"
+      />
+    </v-app-bar>
+
     <v-content>
-        <v-btn>
-          <router-link to="/">Home</router-link>
-        </v-btn>
-        <v-btn>
-          <router-link to="/Personas">Persona List</router-link>
-        </v-btn>
-        <v-btn>
-          <router-link to="/about">About</router-link>
-        </v-btn>
-      <router-view />
+      <v-container fluid>
+        <v-row align="center" justify="center">
+          <v-col class="grow">
+            <router-view></router-view>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-content>
+
+    <v-footer app>
+      <span>&copy; 2019</span>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
 export default {
-  name: "App",
-  components: {},
-  data() {
-    return {
-      //
-    };
+  props: {
+    source: String
+  },
+
+  data: () => ({
+    drawer: null
+  }),
+
+  created() {
+    this.$vuetify.theme.dark = true;
+  },
+  watch: {
+    $route: {
+      handler: to => {
+        document.title = to.meta.title || "Your Website";
+      },
+      immediate: true
+    }
   }
 };
 </script>
