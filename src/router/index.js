@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import IndexView from '../views/index'
 import Dashboard from '../views/Dashboard'
 import UserRegistration from '../views/UserRegistration'
 
@@ -14,11 +15,21 @@ import PersonaDetails from '../views/PersonaDetails'
 
 
 
+
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
+    name: 'index',
+    component: IndexView,
+    meta: {
+      auth: false,
+      title: 'Welcome'
+    }
+  },
+  {
+    path: '/dashboard',
     name: 'dashboard',
     component: Dashboard,
     meta: {

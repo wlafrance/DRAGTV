@@ -7,7 +7,9 @@
             <v-icon>dashboard</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Dashboard</v-list-item-title>
+            <v-list-item-title>
+              <router-link to="/dashboard">Dashboard</router-link>
+            </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -64,15 +66,10 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title>{{ $route.meta.title }}</v-toolbar-title>
       <v-spacer></v-spacer>
-      <img
-        class="d-lg-none d-xl-flex"
-        :src="require('@/assets/TopSmallIcon.png')"
-        alt="logo"
-        height="45"
-      />
+      <img class="d-lg-none" :src="require('@/assets/TopSmallIcon.png')" alt="logo" height="45" />
       <img
         class="d-none d-lg-block"
-        :src="require('@/assets/TopLongBanner.png')"
+        :src="require('@/assets/bannerLogo_trans.png')"
         alt="logo"
         height="50"
       />

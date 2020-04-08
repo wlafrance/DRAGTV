@@ -1,18 +1,36 @@
 <template>
-  <v-content>
-    {{ $route.meta.title }}
-    <v-container class="fill-height" fluid>
-      <v-row align="center" justify="top">
-        <v-col class="shrink">
-          <router-view></router-view>
-        </v-col>
-      </v-row>
-    </v-container>
-  </v-content>
+  <v-card>
+    <v-card-title>Login Form</v-card-title>
+    <v-card-text>
+      <v-form v-model="isValid">
+        <v-text-field
+          label="Email"
+          v-model="email"
+          :rules="[v => !!v || 'Email is required']"
+          required
+        ></v-text-field>
+        <v-text-field
+          label="Password"
+          v-model="password"
+          type="password"
+          :rules="[v => !!v || 'Password is required']"
+          required
+        ></v-text-field>
+      </v-form>
+    </v-card-text>
+    <v-card-actions>
+      <v-btn color="primary" :disabled="!isValid">Login</v-btn>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>
 export default {
-  name: "Dashboard"
+  name: "Dashboard",
+  data: () => ({
+    email: null,
+    password: null,
+    isValid: true
+  })
 };
 </script>
