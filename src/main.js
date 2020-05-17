@@ -8,7 +8,7 @@ import { store } from './store/store'
 import VueTheMask from 'vue-the-mask'
 
 import * as firebase from 'firebase';
-import { firebaseConfig } from './firebaseConfig';
+import { firebaseConfig } from './firebaseConfig/firebaseConfig';
 
 
 Vue.config.productionTip = false
