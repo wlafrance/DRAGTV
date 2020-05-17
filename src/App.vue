@@ -66,6 +66,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title>{{ $route.meta.title }}</v-toolbar-title>
       <v-spacer></v-spacer>
+      <navigation></navigation>
       <img class="d-lg-none" :src="require('@/assets/TopSmallIcon.png')" alt="logo" height="45" />
       <img
         class="d-none d-lg-block"
@@ -92,7 +93,9 @@
 </template>
 
 <script>
+import navigation from "@/components/nav-bar.vue";
 export default {
+  components: { navigation },
   props: {
     source: String
   },

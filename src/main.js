@@ -7,7 +7,13 @@ import { store } from './store/store'
 
 import VueTheMask from 'vue-the-mask'
 
+import * as firebase from 'firebase';
+import { firebaseConfig } from './firebaseConfig';
+
+
 Vue.config.productionTip = false
+
+firebase.initializeApp(firebaseConfig);
 
 new Vue({
   VueTheMask,

@@ -13,12 +13,23 @@ import Personas from '../views/Personas'
 import PersonaIndex from '../views/PersonaIndex'
 import PersonaDetails from '../views/PersonaDetails'
 
+import LoginUser from '../components/login-user.vue'
+
 
 
 
 Vue.use(VueRouter)
 
 const routes = [
+
+  {
+    path: "/loginuser",
+    name: "LoginUser",
+    component: LoginUser,
+    meta: {
+      guest: true,
+    },
+  },
   {
     path: '/',
     name: 'index',
