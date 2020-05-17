@@ -31,7 +31,7 @@ export default {
           scopes: ["public_profile", "email", "user_likes", "user_friends"],
           customParameters: {
             // Forces password re-entry.
-            auth_type: "reauthenticate"
+            //auth_type: "reauthenticate"
           }
         },
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,

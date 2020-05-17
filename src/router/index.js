@@ -32,7 +32,7 @@ const routes = [
   },
   {
     path: '/',
-    name: 'index',
+    name: 'landing',
     component: IndexView,
     meta: {
       auth: false,

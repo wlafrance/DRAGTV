@@ -5,9 +5,13 @@
       <v-icon>search</v-icon>
     </v-btn>
     <section>
-      <v-btn icon>
+      <v-btn icon v-show="!user">
         <v-icon>mdi-login</v-icon>
         <router-link to="/loginuser">Login</router-link>
+      </v-btn>
+      <v-btn icon v-show="user">
+        <v-icon>mdi-logout</v-icon>
+        <a @click="signoutButtonPressed">Logout</a>
       </v-btn>
     </section>
   </v-toolbar>
@@ -36,7 +40,7 @@ export default {
         .then(function() {
           // Sign-Out Successful
         });
-      this.$router.push({ name: "LoginUser" });
+      this.$router.push({ name: "landing" });
     }
   }
 };
